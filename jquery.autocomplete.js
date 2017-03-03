@@ -662,7 +662,7 @@
 				$dropdown.find('div').removeClass('active');
 				$(this).addClass('active');
 			})
-			.on('mousedown touchstart','div',function(){
+			.on('click','div',function(){
 				$dropdown.find('div').removeClass('active');
 				$(this).addClass('active');
 				$input.trigger('pick.xdsoft');
@@ -776,9 +776,9 @@
 						$dropdown.children().eq(key==ARROWDOWN?0:-1).addClass('active');
 					}
 					
-					if( timepick ){
-						$input.trigger('timepick.xdsoft');
-					}
+					// if( timepick ){
+					// 	$input.trigger('timepick.xdsoft');
+					// }
 					
 					$dropdown
 						.trigger('updatescroll.xdsoft');
@@ -819,9 +819,9 @@
 				
 				if( active.length ){
 					if( !isset(_value) ){
-						$input.val(getValue.call(options,active,dataset));
+						$input.val($input.val() + getValue.call(options,active,dataset));
 					}else{
-						$input.val(_value);
+						$input.val($input.val() + _value);
 					}
 					$input.trigger('autocompleted.xdsoft',[getItem(active,dataset)]);
 					$hint.val('');
